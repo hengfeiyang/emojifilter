@@ -8,8 +8,6 @@ import (
 	"os"
 	"strconv"
 	"strings"
-
-	"github.com/go-baa/common/util"
 )
 
 type emoji struct {
@@ -51,10 +49,10 @@ func newEmoji() *emoji {
 }
 
 func (t *emoji) downloadData(file, url string) error {
-	if util.IsExist(file) {
+	if isExist(file) {
 		return nil
 	}
-	_, err := util.HTTPDownload(url, file)
+	_, err := httpDownload(url, file)
 	if err != nil {
 		return err
 	}
@@ -62,7 +60,7 @@ func (t *emoji) downloadData(file, url string) error {
 }
 
 func (t *emoji) fetchEmojis(file string) (map[rune]bool, error) {
-	data, err := util.ReadFile(file)
+	data, err := readFile(file)
 	if err != nil {
 		return nil, err
 	}

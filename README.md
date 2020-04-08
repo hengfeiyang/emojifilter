@@ -14,8 +14,7 @@ import (
 
 func main() {
     str := "1234567890my👮VANS album😎😜😞pudding by orange🍊eggs🥚Zoeva eyes💋shadow😈canmake"
-    // 1234567890myVANS albumpudding by orangeeggsZoeva eyesshadowcanmake
-	noEmojiStr := emojifilter.Filter(str)
-	fmt.Println(noEmojiStr)
+	noEmojiStr := "1234567890myVANS albumpudding by orangeeggsZoeva eyesshadowcanmake"
+	fmt.Println(noEmojiStr == emojifilter.Filter(str))
 }
 ```
